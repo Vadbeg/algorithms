@@ -1,5 +1,5 @@
 """
-Sortig algorithms
+Quick-Sort algorithm
 
 @by Vadbeg
 """
