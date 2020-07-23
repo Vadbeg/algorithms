@@ -39,6 +39,12 @@ class Cell:
         self.next_cell = next_cell
         self.value = value
 
+    def __eq__(self, other: 'Cell'):
+        if self.value == other.value:
+            return True
+
+        return False
+
 
 if __name__ == '__main__':
     linked_list = LinkedList()

@@ -1,28 +1,6 @@
-"""Module for checking have list cycle or have not"""
+from copy import deepcopy
 
 from data_structures.linked_list import Cell, LinkedList
-
-
-def reverse(first_cell: Cell):
-    """
-    Reverse list
-
-    :param first_cell: starting cell of list
-    :return: new first cell
-    """
-
-    prev_cell = None
-    curr_cell = first_cell
-
-    while curr_cell is not None:
-        next_cell = curr_cell.next_cell
-
-        curr_cell.next_cell = prev_cell
-
-        prev_cell = curr_cell
-        curr_cell = next_cell
-
-    return prev_cell
 
 
 def get_str_list(first_cell: Cell) -> str:
@@ -50,19 +28,22 @@ def get_str_list(first_cell: Cell) -> str:
     return list_str
 
 
-def have_cycle(first_cell: Cell) -> bool:
-    """
-    Checks if list have cycle or have not
+def has_cycle_retracing(first_cell: Cell):
+    cell = first_cell
 
-    :param first_cell: first cell of LinkedList
-    :return: if have True, else False
-    """
+    while cell.next_cell is not None:
+        tracer = first_cell
 
-    reversed_first_cell = reverse(first_cell=first_cell)
-    reverse(first_cell=reversed_first_cell)  # returns list to state before reverse
+        while tracer != cell:
+            if tracer.next_cell == cell.next_cell:
+                print(f'Cell value: {cell.value}')
+                cell.next_cell = None
 
-    if reversed_first_cell == first_cell:
-        return True
+                return True
+
+            tracer = tracer.next_cell
+
+        cell = cell.next_cell
 
     return False
 
@@ -77,18 +58,22 @@ if __name__ == '__main__':
     cell_c = Cell(next_cell=cell_d, value='c')
     cell_b = Cell(next_cell=cell_c, value='b')
     cell_a = Cell(next_cell=cell_b, value='a')
+    cell_1 = Cell(next_cell=cell_a, value='1')
+    cell_2 = Cell(next_cell=cell_1, value='2')
+    cell_3 = Cell(next_cell=cell_2, value='3')
+    cell_4 = Cell(next_cell=cell_3, value='4')
 
     cell_i.next_cell = cell_d
 
-    str_list = get_str_list(first_cell=cell_a)
+    str_list = get_str_list(first_cell=cell_4)
     print(str_list)
 
-    have_cycle_bool = have_cycle(first_cell=cell_a)
+    have_cycle_bool = has_cycle_retracing(first_cell=cell_4)
     if have_cycle_bool:
         print('List have cycle')
     else:
         print('There is no cycle')
 
-    str_list = get_str_list(first_cell=cell_a)
+    str_list = get_str_list(first_cell=cell_4)
     print(f'List after checking: {str_list}')
 
