@@ -3,28 +3,6 @@
 from data_structures.linked_list import Cell, LinkedList
 
 
-def reverse(first_cell: Cell):
-    """
-    Reverse list
-
-    :param first_cell: starting cell of list
-    :return: new first cell
-    """
-
-    prev_cell = None
-    curr_cell = first_cell
-
-    while curr_cell is not None:
-        next_cell = curr_cell.next_cell
-
-        curr_cell.next_cell = prev_cell
-
-        prev_cell = curr_cell
-        curr_cell = next_cell
-
-    return prev_cell
-
-
 def get_str_list(first_cell: Cell) -> str:
     """
     Returns str(list) like string with elements of LinkedList
@@ -50,21 +28,34 @@ def get_str_list(first_cell: Cell) -> str:
     return list_str
 
 
-def have_cycle(first_cell: Cell) -> bool:
-    """
-    Checks if list have cycle or have not
+def floyd_have_cycle(first_cell: Cell):
+    tortoise = first_cell.next_cell
+    hare = first_cell.next_cell.next_cell
 
-    :param first_cell: first cell of LinkedList
-    :return: if have True, else False
-    """
+    while tortoise != hare:
+        tortoise = tortoise.next_cell
 
-    reversed_first_cell = reverse(first_cell=first_cell)
-    reverse(first_cell=reversed_first_cell)  # returns list to state before reverse
+        if hare.next_cell is None or hare.next_cell.next_cell is None:
+            return -1, -1
 
-    if reversed_first_cell == first_cell:
-        return True
+        hare = hare.next_cell.next_cell
 
-    return False
+    mu = 0
+    tortoise = first_cell
+
+    while tortoise != hare:
+        tortoise = tortoise.next_cell
+        hare = hare.next_cell
+
+        mu += 1
+
+    lam = 1
+    hare = tortoise.next_cell
+    while tortoise != hare:
+        hare = hare.next_cell
+        lam += 1
+
+    return lam, mu
 
 
 if __name__ == '__main__':
@@ -78,16 +69,18 @@ if __name__ == '__main__':
     cell_b = Cell(next_cell=cell_c, value='b')
     cell_a = Cell(next_cell=cell_b, value='a')
 
-    cell_i.next_cell = cell_d
+    # cell_i.next_cell = cell_d
 
     str_list = get_str_list(first_cell=cell_a)
-    print(str_list)
 
-    have_cycle_bool = have_cycle(first_cell=cell_a)
-    if have_cycle_bool:
+    lam, mu = floyd_have_cycle(first_cell=cell_a)
+    if lam != -1 and mu != -1:
         print('List have cycle')
     else:
         print('There is no cycle')
+
+    print(f'Length of the cycle: {lam}')
+    print(f'Number of cycle starting node : {mu}')
 
     str_list = get_str_list(first_cell=cell_a)
     print(f'List after checking: {str_list}')
