@@ -1,5 +1,5 @@
 """
-Bitonic sorting algorithm
+Bitonic sorting algorithm | NOT READY YET
 
 
 :source: https://www.geeksforgeeks.org/bitonic-sort/

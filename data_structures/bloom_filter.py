@@ -60,11 +60,11 @@ class BloomFilter:
     @classmethod
     def get_size(cls, n: int, p: int) -> int:
         """
-        Returns the size of bit array(m) to used using following formula
+        Returns the size of bit res_array(m) to used using following formula
 
         :param n: number of items expected to be stored in filter
         :param p: False Positive probability in decimal
-        :return: size of array
+        :return: size of res_array
         """
 
         m = - (n * math.log(p)) / (math.log(2) ** 2)
@@ -77,7 +77,7 @@ class BloomFilter:
         """
         Returns the hash function(k) to be used using following formula
 
-        :param m: size of bit array
+        :param m: size of bit res_array
         :param n: number of items expected to be stored in filter
         :return: number of hash functions needed
         """
@@ -94,7 +94,7 @@ if __name__ == '__main__':
 
     bloom_filter = BloomFilter(items_count=num_of_items, fp_prob=fp_prob)
 
-    print(f'Size of bit array: {bloom_filter.size}')
+    print(f'Size of bit res_array: {bloom_filter.size}')
     print(f'False positive probability: {bloom_filter.fp_prob}')
     print(f'Number of hash functions: {bloom_filter.hash_count}')
 

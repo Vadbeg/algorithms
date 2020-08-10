@@ -6,6 +6,8 @@ Quick-Sort algorithm
 
 from typing import List
 
+from sorting_algorithms.utils import is_sorted
+
 
 def quick_sort(array_to_sort: List[int]) -> List[int]:
     """
@@ -14,8 +16,8 @@ def quick_sort(array_to_sort: List[int]) -> List[int]:
     Time: O(n*log(n))
     Memory: O(n)
 
-    :param array_to_sort: array which we need to sort
-    :return: sorted array
+    :param array_to_sort: res_array which we need to sort
+    :return: sorted res_array
     """
 
     if len(array_to_sort) < 2:
@@ -37,3 +39,4 @@ if __name__ == '__main__':
     res_sorted = quick_sort(array_to_sort)
 
     print(f'Sorted list: {res_sorted}')
+    print(f'is_sorted: {is_sorted(res_sorted)}')
