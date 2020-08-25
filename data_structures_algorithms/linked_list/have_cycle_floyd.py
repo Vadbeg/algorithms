@@ -1,7 +1,6 @@
 """Module for checking have list cycle or have not using Floyd Hare and Tortoise algorithm"""
 
 from typing import Tuple
-
 from data_structures.linked_list import Cell, LinkedList
 
 
@@ -40,7 +39,6 @@ def floyd_have_cycle(first_cell: Cell) -> Tuple[int, int]:
     :param first_cell: starting cell of the linked list
     :return: length of the cycle, starting index of the cycle
     """
-
     tortoise = first_cell.next_cell
     hare = first_cell.next_cell.next_cell
 
@@ -86,6 +84,8 @@ if __name__ == '__main__':
     cell_d.next_cell = cell_d
 
     str_list = get_str_list(first_cell=cell_2)
+
+    # cell_i.next_cell = cell_d
 
     lam, mu = floyd_have_cycle(first_cell=cell_a)
     if lam != -1 and mu != -1:
