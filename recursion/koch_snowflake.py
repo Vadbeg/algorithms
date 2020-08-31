@@ -60,7 +60,7 @@ def draw_koch(image: np.ndarray, depth: int, pt1: Tuple[int, int], angle: float,
 if __name__ == '__main__':
     image = np.ones((500, 500, 3)) * 255
 
-    draw_koch(image=image, depth=3, pt1=(250, 30), angle=0, length=450)
+    draw_koch(image=image, depth=4, pt1=(250, 30), angle=0, length=450)
 
     cv2.imshow('Image', image)
     cv2.waitKey(0)
