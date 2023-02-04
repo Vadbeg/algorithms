@@ -2,7 +2,7 @@ import random
 from typing import List
 from copy import deepcopy
 
-from sorting_algorithms.utils import is_sorted
+from tasks.sorting_algorithms.utils import is_sorted
 
 
 def move_els(array: List[int], start_index, remove_index):

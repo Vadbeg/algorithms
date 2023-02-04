@@ -1,6 +1,6 @@
 """Module for checking have list cycle or have not"""
 
-from data_structures.linked_list import Cell, LinkedList
+from tasks.data_structures.linked_list import Cell
 
 
 def reverse(first_cell: Cell):

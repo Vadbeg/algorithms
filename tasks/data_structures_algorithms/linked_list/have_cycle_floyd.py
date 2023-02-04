@@ -1,7 +1,7 @@
 """Module for checking have list cycle or have not using Floyd Hare and Tortoise algorithm"""
 
 from typing import Tuple
-from data_structures.linked_list import Cell, LinkedList
+from tasks.data_structures.linked_list import Cell
 
 
 def get_str_list(first_cell: Cell) -> str:

@@ -6,7 +6,7 @@ Quick-Sort algorithm
 
 from typing import List
 
-from sorting_algorithms.utils import is_sorted
+from tasks.sorting_algorithms.utils import is_sorted
 
 
 def quick_sort(array_to_sort: List[int]) -> List[int]:

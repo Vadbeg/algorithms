@@ -3,7 +3,7 @@
 import random
 from typing import List
 
-from sorting_algorithms.utils import is_sorted
+from tasks.sorting_algorithms.utils import is_sorted
 
 
 def merge_sort(array: List[int]) -> List[int]:

@@ -2,7 +2,7 @@
 
 from collections import deque
 
-from trees.binary_tree.binary_tree import BinaryTree
+from tasks.trees.binary_tree.binary_tree import BinaryTree
 
 
 def traverse_preorder(root: BinaryTree):

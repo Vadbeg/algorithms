@@ -12,7 +12,7 @@ Books:
 * [Grokking Algorithms](https://www.amazon.com/Grokking-Algorithms-illustrated-programmers-curious/dp/1617292230) by Aditya Bhargava
 
 
-*Huge thank you for information!*
+*Huge thank you for the information!*
 
 
 ## Authors

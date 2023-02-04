@@ -1,8 +1,8 @@
 import random
 from typing import List
 
-from sorting_algorithms.insertion_sort import insertion_sort
-from sorting_algorithms.utils import is_sorted
+from tasks.sorting_algorithms.insertion_sort import insertion_sort
+from tasks.sorting_algorithms.utils import is_sorted
 
 
 def bucket_sort(array: List[int], bins=10):

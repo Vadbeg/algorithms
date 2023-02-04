@@ -1,6 +1,4 @@
-from copy import deepcopy
-
-from data_structures.linked_list import Cell, LinkedList
+from tasks.data_structures.linked_list import Cell
 
 
 def get_str_list(first_cell: Cell) -> str:

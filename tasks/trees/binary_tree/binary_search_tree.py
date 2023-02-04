@@ -1,6 +1,6 @@
 from typing import Union, Optional
 
-from trees.binary_tree.traverse import traverse_inorder, traverse_depth_first
+from tasks.trees.binary_tree.traverse import traverse_inorder, traverse_depth_first
 
 
 class BinarySearchTree:
