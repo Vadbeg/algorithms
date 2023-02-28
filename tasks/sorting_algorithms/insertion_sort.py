@@ -32,14 +32,11 @@ def insertion_sort(array: List[int]):
 
 
 if __name__ == '__main__':
-    # array = [random.randrange(0, 1000) for _ in range(10000)]
     array = [random.randrange(0, 100) for _ in range(30)]
 
     res_array = insertion_sort(array=array)
 
     print(f'Start array: {array}')
-    print(f'Start array length: {len(array)}')
     print(f'Res array: {res_array}')
-    print(f'Res array length: {len(res_array)}')
     print(f'Is sorted: {is_sorted(res_array)}')
 
